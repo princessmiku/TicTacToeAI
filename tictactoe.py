@@ -1,5 +1,7 @@
 import json
+import os
 import random
+import sys
 import time
 import tkinter as tk
 import webbrowser
@@ -18,6 +20,14 @@ PLAYER_MARKER = 'X'
 AI_MARKER = 'O'
 EMPTY_MARKER = ' '
 WIN_CONDITIONS = ((0, 1, 2), (3, 4, 5), (6, 7, 8), (0, 3, 6), (1, 4, 7), (2, 5, 8), (0, 4, 8), (2, 4, 6))
+
+if getattr(sys, 'frozen', False):
+    base_dir = sys._MEIPASS
+else:
+    base_dir = os.path.dirname(os.path.abspath(__file__))
+
+logo_png_path = os.path.join(base_dir, 'img', 'logo.png')
+logo_ico_path = os.path.join(base_dir, 'img', 'logo.ico')
 
 
 class TicTacToe:
@@ -51,7 +61,7 @@ class TicTacToe:
             None
         """
         self.root = tk.Tk()
-        self.root.iconbitmap('img/logo.ico')
+        self.root.iconbitmap(logo_ico_path)
         self.data_file = "tttdata.json"
         self.difficulty = "Easy"
         self.board = [' ' for _ in range(9)]
@@ -116,9 +126,9 @@ class TicTacToe:
         info_window.geometry(f"{info_width}x{info_height}+{pos_x}+{pos_y}")
 
         info_window.title("About this project")
-        info_window.iconbitmap('img/logo.ico')
+        info_window.iconbitmap(logo_ico_path)
 
-        img = tk.PhotoImage(file="img/logo.png")
+        img = tk.PhotoImage(file=logo_png_path)
         img = img.subsample(3)
 
         panel = tk.Label(info_window, image=img)
@@ -440,7 +450,7 @@ class TicTacToe:
         difficulty_window.geometry("+%d+%d" % (self.root.winfo_rootx() + 50, self.root.winfo_rooty() + 50))
 
         difficulty_window.title('Select Difficulty')
-        difficulty_window.iconbitmap('img/logo.ico')
+        difficulty_window.iconbitmap(logo_ico_path)
 
         difficulty_window.update_idletasks()
 
@@ -482,7 +492,7 @@ class TicTacToe:
         pos_y = root_y + root_height // 2 - height // 2
 
         stats_window = tk.Toplevel(self.root, bg='white')
-        stats_window.iconbitmap('img/logo.ico')
+        stats_window.iconbitmap(logo_ico_path)
         stats_window.geometry(f"{width}x{height}+{pos_x}+{pos_y}")
         stats_window.grab_set()
 

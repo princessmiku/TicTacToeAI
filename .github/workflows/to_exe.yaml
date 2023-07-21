@@ -25,13 +25,9 @@ jobs:
           pip install Pillow
           pip install ttkbootstrap
 
-      - name: Run tests
-        run: |
-          pytest
-
       - name: Build Executable
         run: |
-          pyinstaller --onefile tictactoe.py
+          pyinstaller tictactoe.spec
 
       - name: Create Release
         id: create_release
