@@ -4,7 +4,7 @@ This is a Tic Tac Toe game where you play against an artificial intelligence (AI
 to provide you with three levels of difficulty: Easy, Medium or Hard. The AI which powers this game was developed by
 JetBrains AI Assistant.
 
-![Project Image](https://github.com/princessmiku/TicTacToeAI/blob/master/img/game.png)
+<img src="https://github.com/princessmiku/TicTacToeAI/blob/master/img/game.png" alt="drawing" height="250"/>
 
 ## Dependencies
 
