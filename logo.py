@@ -43,6 +43,6 @@ mask_draw.ellipse((0, 0) + image_size, fill=255)
 img.putalpha(mask)
 
 # Save the image
-img.save('logo.png')
+img.save('img/logo.png')
 img.resize((32,32))
-img.save('logo.ico', format='ICO')
+img.save('img/logo.ico', format='ICO')
