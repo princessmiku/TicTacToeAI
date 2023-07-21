@@ -1,8 +1,8 @@
 name: Build and Release Executable
 
 on:
-  push:
-    branches: [ main ]
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -29,24 +29,13 @@ jobs:
         run: |
           pyinstaller tictactoe.spec
 
-      - name: Create Release
-        id: create_release
-        uses: actions/create-release@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        with:
-          tag_name: ${{ github.ref }}
-          release_name: Release ${{ github.ref }}
-          draft: false
-          prerelease: false
-
       - name: Upload Release Asset
         id: upload-release-asset
         uses: actions/upload-release-asset@v1.0.1
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          upload_url: ${{ steps.create_release.outputs.upload_url }}
+          upload_url: ${{ github.event.release.upload_url }}
           asset_path: ./dist/tictactoe.exe
           asset_name: tictactoe.exe
           asset_content_type: application/octet-stream
