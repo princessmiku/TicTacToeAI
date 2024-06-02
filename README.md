@@ -58,8 +58,7 @@ on [GitHub](https://github.com/princessmiku/TicTacToeAI).
 
 ## License
 
-The game is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html). This
-license allows the game to remain open-source and free for use, but disallows its use for commercial purposes.
+The game is licensed under the [GNU General Public License v3.0](https://www.gnu.org/licenses/gpl-3.0.en.html).
 
 ## Graphics Creation and Implementation
 
